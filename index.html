@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Population Chart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+  <div class="ui container">
+    <h1 class="ui center aligned header">Population Chart Of The 23 Districts Of West Bengal</h1>
+    <canvas id="first-chart"></canvas>
+    <br>
+    <br>
+    <h1 class="ui center aligned header">Population Density Chart Of The 23 Districts Of West Bengal</h1>
+    <canvas id="second-chart"></canvas>
+    <div class="ui info message">
+      <div class="header">
+        <i class="quote left icon"></i>
+        Source: <a href="https://en.wikipedia.org/wiki/List_of_districts_of_West_Bengal" target="_blank">Wikipedia</a> - 29/04/2020
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // import Chart from 'chart.js';
+    let firstChart = document.getElementById("first-chart").getContext("2d")
+    let secondChart = document.getElementById("second-chart").getContext("2d")
+
+    // Global Property
+    // Chart.defaults.global.defaultFontFamily = 'Poppins';
+    // Chart.defaults.global.defaultFontSize = 15;
+
+    let chartOne = new Chart(firstChart, {
+      type: "bar",
+      data: {
+        labels: [
+          "Alipurduar", "Bankura", "Paschim Bardhaman", "Purba Bardhaman", "Birbhum", "Cooch Behar", "	Darjeeling",
+          "Uttar Dinajpur", "Dakshin Dinajpur", "Hooghly", "Howrah", "Jalpaiguri", "Jhargram", "Kolkata", "	Kalimpong",
+          "Malda", "Paschim Medinipur", "Purba Medinipur", "Murshidabad", "Nadia", "North 24 Parganas", "South 24 Parganas",
+          "Purulia"
+        ],
+        datasets: [{
+          label: "Population",
+          data: [
+            1700000, 3596292, 2882031, 4835532, 	3502387, 	2822780, 1797422, 3000849, 1670931, 5520389, 4850029, 2172846, 
+            1136548, 4486679, 251642, 3997970, 5943300, 5094238, 	7102430, 5168488, 10082852, 8153176, 2927965
+          ],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+          ],
+          borderWidth: 1,
+          borderColor: "#777",
+          hoverBorderWidth: 2,
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Bar Chart"
+        }
+      }
+    })
+
+    let chartTwo = new Chart(secondChart, {
+      type: "bar",
+      data: {
+        labels: [
+          "Alipurduar", "Bankura", "Paschim Bardhaman", "Purba Bardhaman", "Birbhum", "Cooch Behar", "	Darjeeling",
+          "Uttar Dinajpur", "Dakshin Dinajpur", "Hooghly", "Howrah", "Jalpaiguri", "Jhargram", "Kolkata", "	Kalimpong",
+          "Malda", "Paschim Medinipur", "Purba Medinipur", "Murshidabad", "Nadia", "North 24 Parganas", "South 24 Parganas",
+          "Purulia"
+        ],
+        datasets: [{
+          label: "Population Density in per Square Kilometre",
+          data: [
+            400, 523, 1100, 890, 771, 833, 859, 956, 753, 1753, 3306, 621, 374, 24252, 239, 1071, 636, 1076, 1334, 
+            1316, 2463, 819, 468
+          ],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+          ],
+          borderWidth: 1,
+          borderColor: "#777",
+          hoverBorderWidth: 2,
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Bar Chart"
+        },
+        legend:{
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
